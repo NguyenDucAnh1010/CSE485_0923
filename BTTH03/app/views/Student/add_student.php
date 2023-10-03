@@ -10,12 +10,12 @@
 </head>
 <body class="mx-5">
     
-    <?php require_once APP_ROOT.'/app/support/header.php'; ?>
+    <?php require_once APP_ROOT.'/app/views/layouts/header.php'; ?>
     
     <div class="m-5 text-center">
         <div class="mx-5">
 
-            <form action="?controller=sinhvien&action=add" method="post">
+            <form action="?controller=student&action=student_add" method="post">
                 <h2 class="mb-4">THÊM MỚI SINH VIÊN</h2>
                 <div class="input-group flex-nowrap mb-3">
                     <span class="input-group-text ms-5" id="addon-wrapping">Tên sinh viên</span>
@@ -35,7 +35,7 @@
                 </div>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end me-5">
                     <button type="submit" class="btn btn-success px-4 m-0">Thêm</button>
-                    <a href="?controller=sinhvien&action=index">
+                    <a href="?controller=student&action=index">
                         <button type="button" class="btn btn-warning px-4 m-0">Quay lại</button>
                     </a>
                 </div>
@@ -44,7 +44,7 @@
         </div>
     </div>
 
-    <?php require_once APP_ROOT.'/app/support/footer.php'; ?>
+    <?php require_once APP_ROOT.'/app/views/layouts/footer.php'; ?>
 
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>

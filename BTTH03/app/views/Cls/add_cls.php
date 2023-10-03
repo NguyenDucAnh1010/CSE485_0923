@@ -10,11 +10,11 @@
 </head>
 <body class="mx-5">
     
-    <?php require_once APP_ROOT.'/app/support/header.php'; ?>
+    <?php require_once APP_ROOT.'/app/views/layouts/header.php'; ?>
     
     <div class="m-5 text-center">
         <div class="mx-5">
-            <form action="?controller=lop&action=add" method="post">
+            <form action="?controller=cls&action=cls_add" method="post">
                 <h2 class="mb-4">THÊM MỚI LỚP</h2>
                 <div class="input-group flex-nowrap mb-3">
                     <span class="input-group-text ms-5" id="addon-wrapping">Tên lớp</span>
@@ -30,7 +30,7 @@
         </div>
     </div>
 
-    <?php require_once APP_ROOT.'/app/support/footer.php'; ?>
+    <?php require_once APP_ROOT.'/app/views/layouts/footer.php'; ?>
     
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>

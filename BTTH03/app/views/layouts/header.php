@@ -3,10 +3,10 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" id="sinhvien" href="?controller=sinhvien&action=index">Sinh Viên</a>
+                    <a class="nav-link" id="student" href="?controller=student&action=index">Sinh Viên</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="lop" href="?controller=lop&action=index">Lớp Học</a>
+                    <a class="nav-link" id="cls" href="?controller=cls&action=index">Lớp Học</a>
                 </li>
             </ul>
         </div>
