@@ -1,0 +1,154 @@
+.filer {
+    width: 90%;
+    height: 8rem;
+    border-radius: 1rem;
+    box-sizing: border-box !important;
+}
+
+.bg-none {
+    background: rgba(0, 0, 0, 0);
+    position: absolute;
+    z-index: -1;
+    top: 8rem;
+    width:78%;
+}
+
+.class-pointer {
+    cursor: pointer;
+}
+
+.color-primary {
+    color: var(--primary);
+}
+
+.icon-chevron {
+    width: 1.5rem;
+    height: 1.5em;
+}
+
+.icon-chevron i:before {
+    vertical-align: middle;
+}
+
+.form-control {
+    width: unset;
+}
+
+.form-select {
+    width: unset;
+}
+
+.btn-filter{
+    background-color: var(--primary);
+    border: none;
+    color:white;
+}
+
+.btn-filter:hover {
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    background-color: white;
+}
+
+i::before {
+    vertical-align: middle !important;
+}
+
+.btn-clear {
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    background-color: white;
+    font-weight: bold;
+}
+
+.btn-clear:hover {
+    background-color: var(--primary);
+    border: none;
+    color:white;
+}
+.page{
+    width: 90%;
+    border-radius: 1rem;
+    box-sizing: border-box !important;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+.form-check-input[type=checkbox]{
+    border: var(--bs-border-width) solid #6c89a6 !important;
+}
+.w-3{
+    width:20%;
+    max-height:38px;
+}
+.table-user{
+    width:100%;
+    text-align: center;
+}
+.table-user>thead{
+    width:inherit;
+}
+.table-user>tbody{
+    width:inherit;
+}
+.table-user>thead th{
+    padding-bottom:1rem;
+}
+.table-user>tbody td{
+    padding-top:1rem;
+}
+.wrapper{
+    width:80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.page-link {
+    position: relative;
+    display: block;
+    color: #673AB7 !important;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #673AB7 !important;
+}
+.page-link:hover {
+    z-index: 2;
+    color: #fff !important;
+    background-color: #673ab7;
+    border-color: #024dbc;
+}
+.page-link:focus {
+    z-index: 3;
+    outline: 0;
+    box-shadow: none;
+}
+
+.text-left.color-primary.fw-bold.mb-1.border-bottom.pb-2 .d-flex{
+    position: relative;
+    left: 80%;
+}
+
+.btn-delete {
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    background-color: white;
+    font-weight: bold;
+}
+
+.btn-add {
+    background-color: var(--primary);
+    border: none;
+    color: white;
+    margin-left: 0.5rem;
+}
+
+.btn-add:hover {
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    background-color: white;
+}
+
+.btn-delete:hover {
+    background-color: var(--primary);
+    border: none;
+    color:white;
+}
