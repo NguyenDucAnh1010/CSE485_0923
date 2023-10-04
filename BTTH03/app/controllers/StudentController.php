@@ -5,9 +5,11 @@ require_once APP_ROOT.'/app/services/ClsService.php';
 
 class StudentController {
     
-    public function index($page){
+    public function index(){
 
         $title = 'student';
+
+        $page = isset($_GET['page'])?$_GET['page']:1;
         
         $studentService = new StudentService();
         $students = $studentService->getByStudentCount($page);
@@ -26,21 +28,34 @@ class StudentController {
         include APP_ROOT.'/app/views/student/add_student.php';
     }
 
-    public function student_add($tenSinhVien, $email, $ngaySinh, $idLop, $page){
+    public function student_add(){
 
-        $studentService = new StudentService();
-        $check = $studentService->addStudent($tenSinhVien, $email, $ngaySinh,$idLop);
+        if(isset($_POST['tenSinhVien'])
+        && isset($_POST['email'])
+        && isset($_POST['ngaySinh'])
+        && isset($_POST['idLop'])){
 
-        if ($check){
-            $this->index($page);
-        }else{
-            $this->add_student();
+            $tenSinhVien = $_POST['tenSinhVien'];
+            $email = $_POST['email'];
+            $ngaySinh = $_POST['ngaySinh'];
+            $idLop = $_POST['idLop'];
+
+            $studentService = new StudentService();
+            $check = $studentService->addStudent($tenSinhVien, $email, $ngaySinh,$idLop);
+
+            if ($check){
+                $this->index();
+            }else{
+                $this->add_student();
+            }
         }
     }
 
-    public function edit_student($id){
+    public function edit_student(){
 
         $title = 'student';
+
+        $id = isset($_GET['idSelect'])?$_GET['idSelect']:null;
 
         $studentService = new StudentService();
         $student = $studentService->getByStudentId($id);
@@ -51,28 +66,39 @@ class StudentController {
         include APP_ROOT.'/app/views/student/edit_student.php';
     }
 
-    public function student_edit($id,$tenSinhVien, $email, $ngaySinh,$idLop,$page){
+    public function student_edit(){
 
-        $studentService = new StudentService();
-        $check = $studentService->editStudent($id,$tenSinhVien, $email, $ngaySinh,$idLop);
+        if(isset($_POST['id'])
+        && isset($_POST['tenSinhVien'])
+        && isset($_POST['email'])
+        && isset($_POST['ngaySinh'])
+        && isset($_POST['idLop'])){
 
-        if ($check){
-            $this->index($page);
-        }else{
-            $this->edit_student($id);
+            $id = $_POST['id'];
+            $tenSinhVien = $_POST['tenSinhVien'];
+            $email = $_POST['email'];
+            $ngaySinh = $_POST['ngaySinh'];
+            $idLop = $_POST['idLop'];
+
+            $studentService = new StudentService();
+            $check = $studentService->editStudent($id,$tenSinhVien, $email, $ngaySinh,$idLop);
+
+            if ($check){
+                $this->index();
+            }else{
+                $this->edit_student();
+            }
         }
     }
 
-    public function delete_student($id,$page){
+    public function delete_student(){
+
+        $id = isset($_GET['idSelect'])?$_GET['idSelect']:null;
 
         $studentService = new StudentService();
         $check = $studentService->deleteStudent($id);
 
-        if ($check){
-            $this->index($page);
-        }else{
-            $this->index($page);
-        }
+        $this->index();
     }
 }
 

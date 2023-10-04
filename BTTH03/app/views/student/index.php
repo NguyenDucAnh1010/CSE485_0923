@@ -39,7 +39,7 @@
                         <td><?php echo $student->getNgaySinh(); ?></td>
                         <td><?php echo $student->getIdLop(); ?></td>
                         <td>
-                            <a class="fs-4 color-primary" href="?controller=student&action=edit_student&idStudent=<?php echo $student->getId(); ?>">
+                            <a class="fs-4 color-primary" href="?controller=student&action=edit_student&idSelect=<?php echo $student->getId(); ?>">
                                 <i class="bi bi-journal-plus"></i>
                             </a>
                         </td>
@@ -61,7 +61,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                        <a href="?controller=student&action=delete_student&idStudent=<?php echo $student->getId(); ?>">
+                                        <a href="?controller=student&action=delete_student&idSelect=<?php echo $student->getId(); ?>">
                                             <button type="button" class="btn btn-primary">Yes</button>
                                         </a>
                                     </div>

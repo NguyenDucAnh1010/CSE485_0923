@@ -35,7 +35,7 @@
                                 <th scope="row"> <?php echo $cls->getId(); ?></th>
                                 <td><?php echo $cls->getTenLop(); ?></td>
                                 <td>
-                                    <a class="fs-4 color-primary" href="?controller=cls&action=edit_cls&idCls=<?php echo $cls->getId(); ?>">
+                                    <a class="fs-4 color-primary" href="?controller=cls&action=edit_cls&idSelect=<?php echo $cls->getId(); ?>">
                                         <i class="bi bi-journal-plus"></i>
                                     </a>
                                 </td>
@@ -57,7 +57,7 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                                <a href="?controller=cls&action=delete_cls&idCls=<?php echo $cls->getId();?>">
+                                                <a href="?controller=cls&action=delete_cls&idSelect=<?php echo $cls->getId();?>">
                                                     <button type="button" class="btn btn-primary">Yes</button>
                                                 </a>
                                             </div>
