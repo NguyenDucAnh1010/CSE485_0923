@@ -30,6 +30,28 @@ class ClsService{
         }
     }
 
+    public function getByClsCount($key)
+    {
+        $dbConnection = new DBConnection();
+        $conn = $dbConnection->getConnection();
+
+        if ($conn != null) {
+            $n = 10 * ($key - 1);
+            $sql = "SELECT * FROM lop LIMIT $n,10";
+            $stmt = $conn->query($sql);
+            $stmt->execute();
+
+            $Clses = [];
+            while ($row = $stmt->fetch()) {
+                $Cls = new Cls($row['id'],$row['tenLop']);
+                $Clses[] = $Cls;
+            }
+            return $Clses;
+        } else {
+            return $Clses = [];
+        }
+    }
+
     public function addCls($tenLop){
         
         //Buoc 1: Mo ket noi

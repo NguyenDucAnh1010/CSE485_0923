@@ -8,6 +8,7 @@ require_once APP_ROOT.'/app/controllers/StudentController.php';
 
 $controller = isset($_GET['controller'])?$_GET['controller']:'student';
 $action     = isset($_GET['action'])?$_GET['action']:'index';
+$page     = isset($_GET['page'])?$_GET['page']:1;
 
 $controller = ucfirst($controller);
 
@@ -22,13 +23,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if($action=='cls_add'){
 
             $tenLop = $_POST['tenLop'];
-            $myController->$action($tenLop);
+            $myController->$action($tenLop,$page);
 
         }else if($action=='cls_edit'){
 
             $id = $_POST['id'];
             $tenLop = $_POST['tenLop'];
-            $myController->$action($id,$tenLop);
+            $myController->$action($id,$tenLop,$page);
 
         }
 
@@ -40,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $email = $_POST['email'];
             $ngaySinh = $_POST['ngaySinh'];
             $idLop = $_POST['idLop'];
-            $myController->$action($tenSinhVien, $email, $ngaySinh,$idLop);
+            $myController->$action($tenSinhVien, $email, $ngaySinh,$idLop,$page);
             
         }else if($action=='student_edit'){
 
@@ -49,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $email = $_POST['email'];
             $ngaySinh = $_POST['ngaySinh'];
             $idLop = $_POST['idLop'];
-            $myController->$action($id, $tenSinhVien, $email, $ngaySinh,$idLop);
+            $myController->$action($id, $tenSinhVien, $email, $ngaySinh,$idLop,$page);
 
         }
 
@@ -62,6 +63,9 @@ if (method_exists($myController, $action)) {
         $myController->$action($_GET['idStudent']);
     }else if(isset($_GET['idCls'])){
         $myController->$action($_GET['idCls']);
+    }
+    if($action == 'index'){
+        $myController->$action($page);
     }
     $myController->$action();
 } else {

@@ -33,6 +33,34 @@ class StudentService{
         }
     }
 
+    public function getByStudentCount($key)
+    {
+        $dbConnection = new DBConnection();
+        $conn = $dbConnection->getConnection();
+
+        if ($conn != null) {
+            $n = 10 * ($key - 1);
+            $sql = "SELECT * FROM sinhvien LIMIT $n,10";
+            $stmt = $conn->query($sql);
+            $stmt->execute();
+
+            $students = [];
+            while ($row = $stmt->fetch()) {
+                $student = new Student(
+                    $row['id'],
+                    $row['tenSinhVien'],
+                    $row['email'],
+                    $row['ngaySinh'],
+                    $row['idLop']
+                );
+                $students[] = $student;
+            }
+            return $students;
+        } else {
+            return $students = [];
+        }
+    }
+
     public function addStudent($tenSinhVien, $email, $ngaySinh,$idLop){
         
         //Buoc 1: Mo ket noi

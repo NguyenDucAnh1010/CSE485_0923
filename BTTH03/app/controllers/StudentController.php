@@ -1,33 +1,38 @@
 <?php
 
 require_once APP_ROOT.'/app/services/StudentService.php';
+require_once APP_ROOT.'/app/services/ClsService.php';
 
 class StudentController {
     
-    public function index(){
+    public function index($page){
 
         $title = 'student';
         
         $studentService = new StudentService();
-        $students = $studentService->getAllStudents();
+        $students = $studentService->getByStudentCount($page);
+        $total = count($studentService->getAllStudents());
 
-        include APP_ROOT.'/app/views/Student/index.php';
+        include APP_ROOT.'/app/views/student/index.php';
     }
 
     public function add_student(){
 
         $title = 'student';
 
-        include APP_ROOT.'/app/views/Student/add_student.php';
+        $clsService = new ClsService();
+        $clses = $clsService->getAllClses();
+
+        include APP_ROOT.'/app/views/student/add_student.php';
     }
 
-    public function student_add($tenSinhVien, $email, $ngaySinh,$idLop){
+    public function student_add($tenSinhVien, $email, $ngaySinh, $idLop, $page){
 
         $studentService = new StudentService();
         $check = $studentService->addStudent($tenSinhVien, $email, $ngaySinh,$idLop);
 
         if ($check){
-            $this->index();
+            $this->index($page);
         }else{
             $this->add_student();
         }
@@ -40,30 +45,33 @@ class StudentController {
         $studentService = new StudentService();
         $student = $studentService->getByStudentId($id);
 
-        include APP_ROOT.'/app/views/Student/edit_student.php';
+        $clsService = new ClsService();
+        $clses = $clsService->getAllClses();
+
+        include APP_ROOT.'/app/views/student/edit_student.php';
     }
 
-    public function student_edit($id,$tenSinhVien, $email, $ngaySinh,$idLop){
+    public function student_edit($id,$tenSinhVien, $email, $ngaySinh,$idLop,$page){
 
         $studentService = new StudentService();
         $check = $studentService->editStudent($id,$tenSinhVien, $email, $ngaySinh,$idLop);
 
         if ($check){
-            $this->index();
+            $this->index($page);
         }else{
             $this->edit_student($id);
         }
     }
 
-    public function delete_student($id){
+    public function delete_student($id,$page){
 
         $studentService = new StudentService();
         $check = $studentService->deleteStudent($id);
 
         if ($check){
-            $this->index();
+            $this->index($page);
         }else{
-            $this->index();
+            $this->index($page);
         }
     }
 }
